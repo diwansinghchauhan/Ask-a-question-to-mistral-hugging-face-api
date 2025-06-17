@@ -1,20 +1,39 @@
 import os
+from dotenv import load_dotenv
+
+from langchain_community.llms import Ollama
 import streamlit as st
-from transformers import pipeline
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
 
-# Use Hugging Face API token from secrets
-HUGGINGFACEHUB_API_TOKEN = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+# Load environment variables from .env
+load_dotenv()
 
-# Load HF inference pipeline
-generator = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct-v0.1", token=HUGGINGFACEHUB_API_TOKEN)
+# LangSmith optional tracking (only needed if using LangSmith)
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT", "")
 
-# Streamlit app
-st.title("Ask a Question to Mistral (Hugging Face API)")
+# Prompt Template
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "You are a helpful assistant. Please respond to the question asked."),
+    ("user", "Question: {question}")
+])
 
+# Streamlit UI
+st.title("LangChain Demo with Ollama (Mistral)")
 input_text = st.text_input("Ask a question:")
 
+# Ollama model setup
+llm = Ollama(model="mistral")
+output_parser = StrOutputParser()
+
+# Build the chain
+chain = prompt | llm | output_parser
+
+# Process input
 if input_text:
     with st.spinner("Thinking..."):
-        output = generator(input_text, max_new_tokens=100, do_sample=True)
-        st.success("Answer:")
-        st.write(output[0]['generated_text'])
+        response = chain.invoke({"question": input_text})
+    st.success("Answer:")
+    st.write(response)
