@@ -1,9 +1,5 @@
 
-# Project Title
-
-LangChain-based chatbot using Ollama’s Mistral model
-
-# Description
+# LangChain-based chatbot using Ollama’s Mistral model
 
 This project demonstrates how to build a local chatbot application using LangChain, powered by the Mistral model running via Ollama.
 It covers core LangChain components including prompt templates and output parsers. 
