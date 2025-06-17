@@ -1,1 +1,1 @@
-# LangChain-Demo-with-Ollama-Mistral-Model
+# Ask-a-question-to-mistral-hugging-face-api
