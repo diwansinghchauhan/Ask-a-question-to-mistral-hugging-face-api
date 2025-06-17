@@ -1,1 +1,1 @@
-# LangChain Demo with Ollama Mistral Model
+# LangChain-based chatbot using Ollama’s Mistral model On Local
