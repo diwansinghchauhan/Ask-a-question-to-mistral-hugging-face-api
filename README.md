@@ -1,1 +1,1 @@
-# LangChainDemowithOllama-Mistral-
+# LangChain-Demo-with-Ollama-Mistral-Model
