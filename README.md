@@ -1,1 +1,1 @@
-# LangChain-based chatbot using Ollama’s Mistral model On Local
+# LangChain-based chatbot using Ollama’s Mistral model
