@@ -64,3 +64,7 @@ PromptTemplates, LLMs, OutputParsers
 LangSmith Tracing
 
 Streamlit UI Integration
+## 🔗 Links
+[![portfolio]https://diwansinghchauhan.github.io/portfolio/
+[![linkedin]https://www.linkedin.com/in/diwansinghchauhan/
+
