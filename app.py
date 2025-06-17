@@ -21,7 +21,7 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 
 # Streamlit UI
-st.title("LangChain Demo with Ollama (Mistral)")
+st.title("LangChain-based-chatbot-using-Ollama-s-Mistral-model")
 input_text = st.text_input("Ask a question:")
 
 # Ollama model setup
