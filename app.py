@@ -6,7 +6,7 @@ from transformers import pipeline
 hf_token = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 
 # Load HF inference pipeline
-generator = pipeline("text-generation", model="mistral", token=hf_token)
+generator = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct-v0.1", token=hf_token)
 
 # Streamlit app
 st.title("Ask a Question to Mistral (Hugging Face API)")
