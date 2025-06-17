@@ -3,10 +3,10 @@ import streamlit as st
 from transformers import pipeline
 
 # Use Hugging Face API token from secrets
-hf_token = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+HUGGINGFACEHUB_API_TOKEN = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 
 # Load HF inference pipeline
-generator = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct-v0.1", token=hf_token)
+generator = pipeline("text-generation", model="mistralai/Mistral-7B-Instruct-v0.1", token=HUGGINGFACEHUB_API_TOKEN)
 
 # Streamlit app
 st.title("Ask a Question to Mistral (Hugging Face API)")
